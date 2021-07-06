@@ -7,6 +7,8 @@
 // Number of bytes in .wav header
 const int HEADER_SIZE = 44;
 
+typedef uint8_t BYTE;
+
 int main(int argc, char *argv[])
 {
     // Check command-line arguments
@@ -33,9 +35,17 @@ int main(int argc, char *argv[])
 
     float factor = atof(argv[3]);
 
-    // TODO: Copy header from input file to output file
+    // Copy header from input file to output file
+    BYTE header[HEADER_SIZE];
+    fread(header, sizeof(int8_t), HEADER_SIZE, input);
+    fwrite(header, sizeof(int8_t), HEADER_SIZE, output);
 
-    // TODO: Read samples from input file and write updated data to output file
+    // Read samples from input file and write updated data to output file
+    int16_t buffer;
+    while (fread(&buffer, sizeof(int16_t), 1, input)) {
+      buffer *= factor;
+      fwrite(&buffer, sizeof(int16_t), 1, output);
+    }
 
     // Close files
     fclose(input);
