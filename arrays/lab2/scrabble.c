@@ -7,6 +7,7 @@
 int POINTS[] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
 const int LOWERCASE_ASCII = 97;
 
+// Prototyping
 int compute_score(string word);
 
 int main(void)
@@ -19,7 +20,7 @@ int main(void)
     int score1 = compute_score(word1);
     int score2 = compute_score(word2);
 
-    // TODO: Print the winner
+    // Print the winner
     if (score1 > score2) {
         printf("Player 1 wins!\n");
     } else if (score1 < score2) {
@@ -32,8 +33,9 @@ int main(void)
 int compute_score(string word)
 {
     int score = 0;
-    // TODO: Compute and return score for string
+    // Compute and return score for string
     for (int i = 0; word[i] != '\0'; i++) {
+        // None alphabetically characters are ignored
         if (isalpha(word[i])) {
             char c = tolower(word[i]);            
             score += POINTS[c - LOWERCASE_ASCII];
