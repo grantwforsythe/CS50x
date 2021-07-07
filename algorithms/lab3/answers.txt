@@ -1,11 +1,11 @@
-sort1 uses: TODO
+sort1 uses: selection sort 
 
-How do you know?: TODO
+How do you know?: slowest runtime 
 
-sort2 uses: TODO
+sort2 uses: bubble sort 
 
-How do you know?: TODO
+How do you know?: same runtime on reverse-sorted lists 
 
-sort3 uses: TODO
+sort3 uses: merge sort 
 
-How do you know?: TODO
+How do you know?: quickest time to sort on random numbers 
