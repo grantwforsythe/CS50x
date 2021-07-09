@@ -5,9 +5,16 @@
 
 #include <cs50.h>
 #include <stdio.h>
+#include <string.h>
 
+typedef char *string;
 // Prototyping
-bool checksum(long cardnumber);
+bool checksum(string cardnumber);
+
+const int AMEX_LEN = 15;
+const int MC_LEN = 16;
+const int VISA_LEN_13 = 13;
+const int VISA_LEN_16 = 13;
 
 int main(void) {
     /*
@@ -37,12 +44,26 @@ int main(void) {
         printf("INVALID\n");
     }
     */
-    long cardnumber = get_long("Number: ");
+    string cardnumber = get_string("Number: ");
+    bool valid = checksum(cardnumber);
+
+    // if checksum isn't False, than it has to be True
+    if (!(valid)) {
+        printf("INVALID\n");
+    } else if (cardnumber[0] == 4) {
+        printf("VISA\n");
+    } else if (cardnumber[0] == 5 && (cardnumber[1] > 1 && cardnumber[1] < 5)) {
+        printf("MASTERCARD\n");
+    } else if (cardnumber[0] == 3 && cardnumber[1] == 4) {
+        printf("AMEX\n");
+    } else {
+        return 1;
+    } 
 
     return 0;
 }
 
-bool checksum(long cardnumber){
+bool checksum(string cardnumber){
     /*
     Luhn's Algorithm:
     1. multiply every other digit by 2, starting with second-to-last digit
@@ -50,5 +71,11 @@ bool checksum(long cardnumber){
     3. add the sum to the sum of the digits that weren't multiplied by 2
     4. if the total's last digit is 0, then the number is valid
     */
+    int card_len = strlen(cardnumber);
+    
+    if (card_len != AMEX_LEN || card_len != MC_LEN || card_len != VISA_LEN_13 || card_len != VISA_LEN_16) {
+        return false;
+    }
+
     return true;
 }
