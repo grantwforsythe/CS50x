@@ -5,6 +5,7 @@ Run the all the test cases for lab3.
 import os
 import re
 import sys
+import utils
 import subprocess
 
 PATH = os.getcwd()
@@ -15,7 +16,7 @@ def main():
     """
     Run all the tests
     """
-    files = get_files()
+    files = utils.get_files(PATH)
 
     with open('results.txt', 'w') as f:
         
@@ -36,19 +37,6 @@ def main():
 
             f.write(LINE)
             
-def get_files():
-    """
-    return: a list of files used for testing
-    """
-    files = os.listdir(PATH)
-
-    text_files = [
-        file
-        for file in files
-        if file.find('txt') != -1 and file not in  {'answers.txt', 'results.txt'}
-    ]
-
-    return text_files
 
 if __name__ == "__main__":
     print('Running tests...')
