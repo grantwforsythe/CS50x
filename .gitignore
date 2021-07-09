@@ -1,2 +1,4 @@
 # ignore binary files
-*/bin/*
+*/bin/
+*/.venv/
+*/__pycache__/
