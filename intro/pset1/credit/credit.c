@@ -1,15 +1,16 @@
 // TOOD : check if the card is vaild using Luhn's Algorithm
-// TODO : if its valid, determine the type of credit card (AMEX, MASTERCARD, VISA). if it isn't, than its INVALID
 
-#include <cs50.h>
-#include <stdio.h>
+#include <cs50.h> // get_long()
+#include <stdio.h> // printf()
 #include <stdlib.h> // convert string to int
-#include <string.h>
+#include <string.h> // strlen()
 
 typedef char *string;
+
 // Prototyping
 bool checksum(string cardnumber);
 
+// Constants
 const int AMEX_LEN = 15;
 const int MC_LEN = 16;
 const int VISA_LEN_13 = 13;
@@ -24,7 +25,7 @@ int main(void) {
 
     // convert char to int
     // typecasting wasn't working for some reason
-    int first_num = cardnumber[0] - '0'; 
+    int first_num = cardnumber[0] - '0';
     int second_num = cardnumber[1] - '0';
 
     // if checksum isn't False, than it has to be True
@@ -46,7 +47,7 @@ int main(void) {
 
 bool checksum(string cardnumber){
     /*
-    Luhn's Algorithm:
+    Apply Luhn's Algorithm:
     1. multiply every other digit by 2, starting with second-to-last digit
     2. add those products' digits together
     3. add the sum to the sum of the digits that weren't multiplied by 2
