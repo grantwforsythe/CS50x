@@ -1,4 +1,5 @@
 # ignore binary files
-*/bin/
-*/.venv/
-*/__pycache__/
+**/bin
+**/.venv
+**/__pycache__
+**/.vscode
