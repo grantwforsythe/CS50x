@@ -54,10 +54,23 @@ bool checksum(string cardnumber){
     4. if the total's last digit is 0, then the number is valid
     */
     int card_len = strlen(cardnumber);
+    int sum = 0;
 
     if (card_len != AMEX_LEN && card_len != MC_LEN && card_len != VISA_LEN_13 && card_len != VISA_LEN_16) {
         return false;
     }
 
-    return true;
+    for (int i = 0; i < card_len; i ++) {
+        if ( i % 2 == 0) {
+           sum += cardnumber[card_len - i];
+        } else {
+            sum += (cardnumber[card_len - i] - '0') * 2;
+        }
+    }
+
+    if (sum % 10 == 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
