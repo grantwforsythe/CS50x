@@ -2,6 +2,7 @@
 
 import csv
 import sys
+import math
 import random
 
 # Number of simluations to run
@@ -14,22 +15,22 @@ def main():
     if len(sys.argv) != 2:
         sys.exit("Usage: python tournament.py FILENAME")
 
+
+    # Read teams into memory from file
     teams = []
-    # TODO: Read teams into memory from file
-    with open(sys.argv[1], mode='r') as file:
+    filename = sys.argv[1]
+    with open(filename, mode='r') as file:
         reader = csv.DictReader(file)
-        
         for team in reader:
-            # everything is read in as a string so have to change the data type
             team["rating"] = int(team["rating"])
             teams.append(team)
 
+    # Simulate N tournaments and keep track of win counts
+    # A better solution uses Counter objects from the collections libary
     counts = {}
-    # TODO: Simulate N tournaments and keep track of win counts
-    for _ in range(N): 
-        #  a better solution uses Counter objects from the collections libary 
-        team = simulate_tournament(teams)
-        counts[team] = counts.get(team, 0) + 1
+    for _ in range(N):
+        winner = simulate_tournament(teams)
+        counts[winner] = counts.get(winner, 0) + 1
 
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
@@ -60,13 +61,10 @@ def simulate_round(teams):
 
 def simulate_tournament(teams):
     """Simulate a tournament. Return name of winning team."""
-    # TODO: keep simulating rounds until you only have one team.
-    # recursion?
-    # there are 4 rounds in a tournament
-    winners = simulate_round(teams) 
-    for _ in range(3):
-        winners = simulate_round(winners)
-    return winners
+    # Keep simulating rounds until you only have the winner
+    while len(teams) > 1:
+        teams = simulate_round(teams)
+    return teams[0]["team"]
 
 
 if __name__ == "__main__":

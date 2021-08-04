@@ -33,9 +33,9 @@ int main(void) {
         printf("INVALID\n");
     } else if (first_num == 4) {
         printf("VISA\n");
-    } else if (first_num == 5 && (second_num > 1 && second_num < 5)) {
+    } else if (first_num == 5 && (second_num >= 1 && second_num <= 5)) {
         printf("MASTERCARD\n");
-    } else if (first_num == 3 && second_num == 4) {
+    } else if (first_num == 3 && (second_num == 4 || second_num == 7)) {
         printf("AMEX\n");
     } else {
         return 1;
@@ -62,9 +62,9 @@ bool checksum(string cardnumber){
 
     for (int i = 0; i < card_len; i ++) {
         if ( i % 2 == 0) {
-           sum += cardnumber[card_len - i];
+           sum += cardnumber[card_len - i - 1] - '0';
         } else {
-            sum += (cardnumber[card_len - i] - '0') * 2;
+            sum += (cardnumber[card_len - i - 1] - '0') * 2;
         }
     }
 
