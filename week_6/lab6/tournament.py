@@ -2,7 +2,6 @@
 
 import csv
 import sys
-import math
 import random
 
 # Number of simluations to run
