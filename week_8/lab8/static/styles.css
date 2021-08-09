@@ -50,11 +50,6 @@ button, input[type="submit"] {
     vertical-align: middle;
 }
 
-/* button:hover {
-    border: #212529;
-} */
-
-
 input[type="text"] {
     line-height: 1.8;
     width: 25%;
