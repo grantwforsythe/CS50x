@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+
+How do you know?: slowest runtime
+
+sort2 uses: merge sort
+
+How do you know?: quickest runtime across all testcases
+
+sort3 uses: selection sort
+
+How do you know?: best case is ~4s
