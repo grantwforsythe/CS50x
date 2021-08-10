@@ -16,7 +16,21 @@ document.addEventListener("DOMContentLoaded", function(){
                 this.style.background = "red";
                 answer.textContent = "Incorrect";
             }
-            this.append(answer);
+            this.parentElement.append(answer);
         });
     }
 });
+
+function written(){
+    let input = document.querySelector("input[type=text]");
+    let submit = document.querySelector("input[type=submit]");
+    let answer = document.createElement('p');
+    if (input.value === "1984"){
+        input.style.backgroundColor = "green";
+        answer.textContent = "Correct!";
+    } else {
+        input.style.backgroundColor = "red";
+        answer.textContent = "Incorrect";
+    }
+    input.parentElement.append(answer);
+}
