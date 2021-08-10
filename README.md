@@ -1,4 +1,4 @@
-# CS50x - Introduction to Computer Science
+# CS50x - Intro to Computer Science
 1. Week 1 - C
     * date types, operators, conditional statements, loops
     * compliers
