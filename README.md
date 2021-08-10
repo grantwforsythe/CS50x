@@ -7,7 +7,7 @@ A repo to host my source code for [Harvard's 2021 CS50x course](https://cs50.har
 - [ ] pset5
 - [ ] pset6
 - [ ] pset7
-- [ ] lab8
+- [x] lab8
 - [ ] pset8
 - [ ] lab9
 - [ ] pset9
