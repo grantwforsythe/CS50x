@@ -6,5 +6,5 @@ WHERE id IN (
     INTERSECT
     SELECT stars.movie_id FROM stars
     INNER JOIN people ON stars.person_id = people.id
-    WHERE people.name = 'Johnny Depp'
+    WHERE people.name = 'Helena Bonham Carter'
 );
