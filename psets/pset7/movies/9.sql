@@ -4,5 +4,5 @@ INNER JOIN
 INNER JOIN
     movies ON movies.id = stars.movie_id
 WHERE movies.year=2004
-ORDER BY people.birth
-GROUP BY people.id;
+GROUP BY people.id
+ORDER BY people.birth;
