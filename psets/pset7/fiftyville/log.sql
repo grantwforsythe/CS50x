@@ -294,4 +294,4 @@ AND people.passport_number = (
     Output:
     - since this query doesn't return anything, Ernest can not be the thief because the reciever purchased the ticket
     - therefore, Madison must be the thief because she phoned and James is the partner
-*/
+*/--I made the wrong assumption. The partner didn't take the plane with the thief. Therefore, the correct answer is Ernest (thief) and Berthold (partner) went to London after stealing the duck
