@@ -28,7 +28,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- TODO: Loop through the database entries to display them in this table -->
+                        {% for person in people %}
+                            <tr>
+                                <td>{{ person.name }}</td>
+                                {% set month = person.month|string %}
+                                {% set day = person.day|string %}
+                                <td>{{ month + '/' + day}}</td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
