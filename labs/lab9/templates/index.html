@@ -4,6 +4,7 @@
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
         <link href="/static/styles.css" rel="stylesheet">
+        <script type="text/javascript" src="/static/main.js"></script>
         <title>Birthdays</title>
     </head>
     <body>
@@ -15,6 +16,26 @@
 
                 <h2>Add a Birthday</h2>
                 <!-- TODO: Create a form for users to submit a name, a month, and a day -->
+                <form action="/" method="post" id="adduser">
+                    <input required autofocus type="text" placeholder="name" name="name">
+                    <select required name="month">
+                        <option disabled selected value="">month</option>
+
+                        {% for i in range(13) %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                        
+                    </select>
+                    <select required name="day">
+                        <option disabled selected value="">day</option>
+
+                        {% for i in range(32) %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+
+                    </select>
+                    <input type="submit" id="submit" value="Submit">
+                </form>
             </div>
 
             <div class="section">
@@ -34,6 +55,10 @@
                                 {% set month = person.month|string %}
                                 {% set day = person.day|string %}
                                 <td>{{ month + '/' + day}}</td>
+                                <!-- Add button to delete an entry from the database -->
+                                <td>
+                                    <button type="button">Delete</button>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>
