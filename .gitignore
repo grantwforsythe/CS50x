@@ -1,4 +1,5 @@
-**/bin
-**/.venv
-**/__pycache__
-**/.vscode
+bin/
+.venv/
+__pycache__/
+.vscode/
+venv/
